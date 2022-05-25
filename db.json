@@ -1,0 +1,15 @@
+{
+  "medico": {
+    "nome": "",
+    "cpf": "",
+    "celular": "",
+    "cidade": "",
+    "estado": ""
+  },
+  "especialidadeMedica": {
+    "preco": null,
+    "especialidade": "",
+    "pagamento": [],
+    "parcelamento": ""
+  }
+}

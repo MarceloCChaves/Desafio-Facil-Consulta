@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --background: #FFE766;
+  --yellow: #fbde40;
+  --blue: #483698;
+  --red: #DC3545;
+  --white: #fff;
+  --white-secondary: #f9f9f9;
+  --grey: #b9b9b9;
+  --strong-grey: #8a8a8a;
+  --black: #282828;
+}
+h3{
+  font-family: 'Comfortaa', sans-serif;
+}
+span, strong, label, small{
+  font-family: 'Open Sans', sans-serif;
+}
+[disabled]{
+  opacity: 0.6;
+  cursor: not-allowed;
+}

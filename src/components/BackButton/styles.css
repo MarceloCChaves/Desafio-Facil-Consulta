@@ -1,0 +1,14 @@
+.back-button{
+  font-family: 'Comfortaa', sans-serif;
+  color: var(--blue);
+  background: none;
+  border: none;
+  font-size: 28px;
+  padding: 10px 0 20px;
+  width: 40%;
+}
+@media(max-width: 767px){
+  .back-button{
+    text-align: left;
+  }
+}

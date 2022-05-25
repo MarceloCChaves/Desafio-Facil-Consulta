@@ -1,0 +1,20 @@
+div > .submit-button{
+  transition: filter 0.5s;
+}
+
+.submit-button{
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 16px;
+  font-weight: 600;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.submit-button:hover{
+  filter: brightness(0.9);
+}
+
+.submit-button:disabled{
+  opacity: 0.6;
+}

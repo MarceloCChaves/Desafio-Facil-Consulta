@@ -1,5 +1,5 @@
 # 🔗 Fácil consulta
-Projeto criado para treinamento para teste técnico
+Desafio teste técnico fácil consulta
 
 ## Iniciando projeto
 

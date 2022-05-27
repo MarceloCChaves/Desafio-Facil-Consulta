@@ -33,11 +33,11 @@
               </div>
               <div>
                 <strong>Preço da consulta</strong>
-                <p>R${{price.replace(".", ",")}}</p>
+                <p>R${{price}}</p>
               </div>
               <div>
                 <strong>Formas de pagamento da consulta</strong>
-                <p>{{ payment }}, {{ installment }}</p>
+                <p>{{ payment }} {{ installment }}</p>
               </div>
               <div>
                 <next-button
@@ -76,7 +76,7 @@ export default {
       phone: null,
       state: null,
       city: null,
-      price: "",
+      price: null,
       payment: null,
       installment: null
     };
@@ -85,18 +85,18 @@ export default {
     async getCadastro() {
       const req = await fetch("http://localhost:3000/medico");
       const data = await req.json();
-      this.name = data.nome,
-      this.cpf = data.cpf,
-      this.phone = data.celular,
-      this.city = data.cidade,
-      this.state = data.estado;
+      this.name = data.nome
+      this.cpf = data.cpf
+      this.phone = data.celular
+      this.city = data.cidade
+      this.state = data.estado
     },
     async getEsp() {
       const req = await fetch("http://localhost:3000/especialidadeMedica");
       const data = await req.json();
-      this.specialty = data.especialidade;
-      this.price = data.preco;
-      this.payment = data.pagamento;
+      this.specialty = data.especialidade
+      this.price = data.preco
+      this.payment = data.pagamento
       this.installment = data.parcelamento
     },
   },

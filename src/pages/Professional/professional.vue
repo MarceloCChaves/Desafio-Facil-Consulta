@@ -27,11 +27,17 @@
                 placeholder="Digite um CPF"
                 :style="!cpfState ? 'border: 1px solid #d9534f' : ''"
                 v-model="cpf"
-                v-mask="'###.###.###-##'"
                 trim
+                v-mask="'###########'"
               ></b-form-input>
               <small v-if="!cpfState" class="text-danger">
                 Insira um CPF válido
+              </small>
+              <small
+                v-if="cpfs.includes(cpf)"
+                class="text-danger"
+              >
+                CPF já cadastrado
               </small>
             </div>
             <div class="mt-3">
@@ -181,10 +187,10 @@ export default {
       selectedCity: "",
       minimal: 2,
       maximum: 48,
-      cpfCharacters: 13,
+      cpfCharacters: 11,
       phoneCaracters: 15,
+      cpfs: [],
       users: [],
-      newArray: [],
       cities: [],
       states: [],
       rioGrandeCities: [],
@@ -208,6 +214,9 @@ export default {
     const responseMTcities = await api.get(`/estados/5/cidades`);
     const responseMScities = await api.get(`/estados/6/cidades`);
     this.users = responseUsers.data;
+    this.cpfs = this.users.map((el) => {
+      return el.cpf;
+    });
     this.cities = responseCities.data;
     this.states = responseStates.data;
     this.rioGrandeCities = responseRScities.data;
@@ -225,11 +234,11 @@ export default {
       if (this.maximum >= this.name.length) {
         return this.name.length > this.minimal ? true : false;
       }
-      return false;
+      return "";
     },
     cpfState() {
-      if (!this.cpfCharacters <= this.cpf.length) {
-        return this.cpf.length > this.cpfCharacters ? true : false;
+      if (this.cpfCharacters >= this.cpf.length) {
+        return this.cpf.length >= this.cpfCharacters ? true : false
       }
       return "";
     },

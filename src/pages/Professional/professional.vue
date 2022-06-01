@@ -33,10 +33,7 @@
               <small v-if="!cpfState" class="text-danger">
                 Insira um CPF válido
               </small>
-              <small
-                v-if="cpfs.includes(cpf)"
-                class="text-danger"
-              >
+              <small v-if="cpfs.includes(cpf)" class="text-danger">
                 CPF já cadastrado
               </small>
             </div>
@@ -56,93 +53,113 @@
             <div class="d-flex mt-3">
               <div class="d-flex flex-column">
                 <label>Estado*</label>
-                <b-form-select
+                <select
                   v-model="selectedState"
                   :style="!selectedState ? 'border: 1px solid #d9534f' : ''"
                   style="width: 90%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in states"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }} ({{ item.sigla }})</b-form-select-option
                   >
-                </b-form-select>
+                    {{ item.nome }}
+                  </option>
+                </select>
               </div>
               <div class="d-flex flex-column">
                 <label>Cidade*</label>
-                <b-form-select
+                <select
                   v-if="selectedState === 'Rio Grande do Sul'"
                   v-model="selectedCity"
                   style="width: 100%"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in rioGrandeCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
-                <b-form-select
+                    {{ item.nome }}
+                  </option>
+                </select>
+                <select
                   v-if="selectedState === 'Santa Catarina'"
                   v-model="selectedCity"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
                   style="width: 100%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in santaCatarinaCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
-                <b-form-select
+                    {{ item.nome }}
+                  </option>
+                </select>
+                <select
                   v-if="selectedState === 'Paraná'"
                   v-model="selectedCity"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
                   style="width: 100%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in paranaCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
-                <b-form-select
+                    {{ item.nome }}
+                  </option>
+                </select>
+                <select
                   v-if="selectedState === 'Goiás'"
                   v-model="selectedCity"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
                   style="width: 100%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in goiasCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
-                <b-form-select
+                    {{ item.nome }}
+                  </option>
+                </select>
+                <select
                   v-if="selectedState === 'Mato Grosso'"
                   v-model="selectedCity"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
                   style="width: 100%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in matoGrossoCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
-                <b-form-select
+                    {{ item.nome }}
+                  </option>
+                </select>
+                <select
                   v-if="selectedState === 'Mato Grosso do Sul'"
                   v-model="selectedCity"
+                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
                   style="width: 100%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in matoGrossoDoSulCities"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
                   >
-                </b-form-select>
+                    {{ item.nome }}
+                  </option>
+                </select>
               </div>
             </div>
             <div>
@@ -150,10 +167,10 @@
                 Selecione uma opção
               </small>
             </div>
-            <div class="mt-3 bar">
-              <b-progress :value="value" :max="max"></b-progress>
-              <span>1 de 2</span>
+            <div class="myProgress">
+              <div class="myBar"></div>
             </div>
+            <span>1 de 2</span>
             <div>
               <next-button
                 :route="'/attendance'"
@@ -238,7 +255,7 @@ export default {
     },
     cpfState() {
       if (this.cpfCharacters >= this.cpf.length) {
-        return this.cpf.length >= this.cpfCharacters ? true : false
+        return this.cpf.length >= this.cpfCharacters ? true : false;
       }
       return "";
     },

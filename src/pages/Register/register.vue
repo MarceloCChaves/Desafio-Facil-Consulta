@@ -70,19 +70,19 @@ export default {
   name: "register",
   data() {
     return {
-      specialty: null,
-      name: null,
-      cpf: null,
-      phone: null,
-      state: null,
-      city: null,
-      price: null,
-      payment: null,
-      installment: null
+      specialty: '',
+      name: '',
+      cpf: '',
+      phone: '',
+      state: '',
+      city: '',
+      price: '',
+      payment: '',
+      installment: ''
     };
   },
   methods: {
-    async getCadastro() {
+    async getRegister() {
       const req = await fetch("http://localhost:3000/medico");
       const data = await req.json();
       this.name = data.nome
@@ -91,18 +91,29 @@ export default {
       this.city = data.cidade
       this.state = data.estado
     },
-    async getEsp() {
+    async getSpecialty() {
       const req = await fetch("http://localhost:3000/especialidadeMedica");
       const data = await req.json();
       this.specialty = data.especialidade
       this.price = data.preco
-      this.payment = data.pagamento
+      if(data.pagamento.length === 1){
+        this.installment = data.parcelamento
+        return this.payment = data.pagamento[0]
+      }else {
+        data.pagamento.forEach(el => {
+          if(el === data.pagamento[data.pagamento.length - 1]){
+            this.payment += el
+          }else {
+            this.payment += el + `, `
+          }
+        })
+      }
       this.installment = data.parcelamento
     },
   },
   mounted(){
-    this.getCadastro();
-    this.getEsp()
+    this.getRegister();
+    this.getSpecialty();
   }
 };
 </script>

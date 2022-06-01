@@ -1,19 +1,18 @@
 {
   "medico": {
-    "nome": "marcelo",
-    "cpf": "80000302130",
-    "celular": "(10) 1 0302-0130",
+    "nome": "",
+    "cpf": "",
+    "celular": "",
     "cidade": "Pelotas",
     "estado": "Rio Grande do Sul"
   },
   "especialidadeMedica": {
-    "preco": "100.00",
+    "preco": "30.00",
     "especialidade": "Cardiologia",
     "pagamento": [
       "Pix",
-      "Dinheiro",
-      "Cartão de crédito"
+      "Dinheiro"
     ],
-    "parcelamento": "1x, sem juros"
+    "parcelamento": ""
   }
 }

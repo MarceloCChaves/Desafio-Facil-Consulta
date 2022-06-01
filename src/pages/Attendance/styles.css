@@ -19,16 +19,6 @@
   margin-bottom: 20px;
 }
 
-.grid{
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.grid img{
-  width: 400px;
-}
-
 .header{
   display: flex;
   flex-direction: column;
@@ -65,9 +55,23 @@
   color: var(--danger);
 }
 
-.bar > span{
-  color: var(--blue);
+.myProgress {
+  width: 100%;
+  background-color: var(--white-secondary);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.myProgress + span{
+  color: var(--blue) !important;
   font-weight: 700;
+}
+
+.myBar {
+  width: 100%;
+  height: 30px;
+  background-color: var(--blue);
+  border-radius: 8px;
 }
 
 @media(max-width: 1080px){

@@ -14,18 +14,18 @@
             <div class="form-data">
               <div>
                 <label class="mb-1">Especialidade principal*</label>
-                <b-form-select
+                <select
                   :style="!specialty ? 'border: 1px solid #d9534f' : ''"
                   v-model="specialty"
-                  style="width: 90%"
+                  class="form-select"
                 >
-                  <b-form-select-option
+                  <option
                     v-for="item in specialties"
                     :key="item.id"
                     :value="item.nome"
-                    >{{ item.nome }}</b-form-select-option
+                    >{{ item.nome }}</option
                   >
-                </b-form-select>
+                </select>
               </div>
               <div>
                 <small v-if="!specialty" class="text-danger">
@@ -113,10 +113,10 @@
               <small v-if="!checked.length" class="text-danger">
                 Selecione as formas de pagamento
               </small>
-              <div class="mt-3 bar">
-                <b-progress :value="value" :max="max"></b-progress>
-                <span>2 de 2</span>
+              <div class="myProgress">
+                <div class="myBar"></div>
               </div>
+              <span>2 de 2</span>
               <div>
                 <next-button
                   :route="'/register'"
@@ -155,9 +155,9 @@ export default {
       specialty: "",
       specialties: [],
       installment: [
-        { text: "1x, sem juros", value: "1x, sem juros" },
-        { text: "2x, sem juros", value: "2x, sem juros" },
-        { text: "3x, sem juros", value: "3x, sem juros" },
+        { text: "1x, sem juros", value: "- Parcelamento em 1x, sem juros" },
+        { text: "2x, sem juros", value: "- Parcelamento em 2x, sem juros" },
+        { text: "3x, sem juros", value: "- Parcelamento em 3x, sem juros" },
       ],
     };
   },

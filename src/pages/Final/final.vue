@@ -44,7 +44,6 @@ export default {
   async created() {
     const responseUsers = await api.get("/profissionais");
     this.doctors = responseUsers.data.slice(0, 3);
-    console.log(this.users);
   },
 };
 </script>

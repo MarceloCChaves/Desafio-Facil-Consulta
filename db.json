@@ -1,13 +1,13 @@
 {
   "medico": {
-    "nome": "",
-    "cpf": "",
-    "celular": "",
+    "nome": "marcelo calandrini chaves",
+    "cpf": "02437715258",
+    "celular": "(91) 9 9272-7732",
     "cidade": "Pelotas",
     "estado": "Rio Grande do Sul"
   },
   "especialidadeMedica": {
-    "preco": "30.00",
+    "preco": "200.00",
     "especialidade": "Cardiologia",
     "pagamento": [
       "Pix",

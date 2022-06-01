@@ -15,7 +15,7 @@
               <div>
                 <label class="mb-1">Especialidade principal*</label>
                 <select
-                  :style="!specialty ? 'border: 1px solid #d9534f' : ''"
+                  :style="!specialty ? 'border: 1px solid #DC3545' : ''"
                   v-model="specialty"
                   class="form-select"
                 >
@@ -40,7 +40,7 @@
                   </b-input-group-prepend>
                   <b-form-input
                     placeholder="Valor"
-                    :style="!amount ? 'border: 1px solid #d9534f' : ''"
+                    :style="!amount ? 'border: 1px solid #DC3545' : ''"
                     v-model="amount"
                     type="number"
                   />
@@ -55,7 +55,7 @@
               <div class="mt-3">
                 <label class="mb-3">Formas de pagamento da consulta*</label>
                 <b-card
-                  :style="!checked ? 'border: 1px solid #d9534f' : ''"
+                  :style="!checked ? 'border: 1px solid #DC3545' : ''"
                   class="mb-3"
                 >
                   <b-form-checkbox
@@ -68,7 +68,7 @@
                   </b-form-checkbox>
                 </b-card>
                 <b-card
-                  :style="!checked ? 'border: 1px solid #d9534f' : ''"
+                  :style="!checked ? 'border: 1px solid #DC3545' : ''"
                   class="mb-3"
                 >
                   <b-form-checkbox
@@ -174,13 +174,11 @@ export default {
         parcelamento: this.selected
       };
       const dataJson = JSON.stringify(data);
-      const req = await fetch("http://localhost:3000/especialidadeMedica", {
+      await fetch("http://localhost:3000/especialidadeMedica", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dataJson,
       });
-      const res = await req.json();
-      console.log(res);
     },
   },
 };

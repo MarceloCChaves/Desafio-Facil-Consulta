@@ -12,7 +12,7 @@
               <label>Nome completo*</label>
               <b-form-input
                 placeholder="Digite o nome completo"
-                :style="!nameState ? 'border: 1px solid #d9534f' : ''"
+                :style="!nameState ? 'border: 1px solid #DC3545' : ''"
                 v-model="name"
                 trim
                 autofocus
@@ -25,7 +25,7 @@
               <label>CPF*</label>
               <b-form-input
                 placeholder="Digite um CPF"
-                :style="!cpfState ? 'border: 1px solid #d9534f' : ''"
+                :style="!cpfState ? 'border: 1px solid #DC3545' : ''"
                 v-model="cpf"
                 trim
                 v-mask="'###########'"
@@ -41,7 +41,7 @@
               <label>Número de celular*</label>
               <b-form-input
                 placeholder="(00) 0 0000-0000"
-                :style="!phoneState ? 'border: 1px solid #d9534f' : ''"
+                :style="!phoneState ? 'border: 1px solid #DC3545' : ''"
                 v-model="phone"
                 v-mask="'(##) # ####-####'"
                 trim
@@ -55,7 +55,7 @@
                 <label>Estado*</label>
                 <select
                   v-model="selectedState"
-                  :style="!selectedState ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedState ? 'border: 1px solid #DC3545' : ''"
                   style="width: 90%"
                   class="form-select"
                 >
@@ -74,7 +74,7 @@
                   v-if="selectedState === 'Rio Grande do Sul'"
                   v-model="selectedCity"
                   style="width: 100%"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   class="form-select"
                 >
                   <option
@@ -88,7 +88,7 @@
                 <select
                   v-if="selectedState === 'Santa Catarina'"
                   v-model="selectedCity"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   style="width: 100%"
                   class="form-select"
                 >
@@ -103,7 +103,7 @@
                 <select
                   v-if="selectedState === 'Paraná'"
                   v-model="selectedCity"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   style="width: 100%"
                   class="form-select"
                 >
@@ -118,7 +118,7 @@
                 <select
                   v-if="selectedState === 'Goiás'"
                   v-model="selectedCity"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   style="width: 100%"
                   class="form-select"
                 >
@@ -133,7 +133,7 @@
                 <select
                   v-if="selectedState === 'Mato Grosso'"
                   v-model="selectedCity"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   style="width: 100%"
                   class="form-select"
                 >
@@ -148,7 +148,7 @@
                 <select
                   v-if="selectedState === 'Mato Grosso do Sul'"
                   v-model="selectedCity"
-                  :style="!selectedCity ? 'border: 1px solid #d9534f' : ''"
+                  :style="!selectedCity ? 'border: 1px solid #DC3545' : ''"
                   style="width: 100%"
                   class="form-select"
                 >
@@ -277,15 +277,12 @@ export default {
       };
       const dataJson = JSON.stringify(data);
 
-      const req = await fetch("http://localhost:3000/medico", {
+      await fetch("http://localhost:3000/medico", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: dataJson,
       });
 
-      const res = await req.json();
-
-      console.log(res);
     },
   },
 };
